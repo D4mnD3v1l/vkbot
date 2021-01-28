@@ -1,0 +1,73 @@
+print("Select Dice")
+print("""--------
+D4
+D6
+D12
+D20
+--------
+Arcade Mode
+--------""")
+d = input()
+if d == "D6":
+    print("4islo ot 1 do 6")
+    Dice6Roll(int(input()))
+elif d == "D4":
+    print("4islo ot 1 do 4")
+    Dice4Roll(int(input()))
+elif d == "D20":
+    print("4islo ot 1 do 20")
+    Dice20Roll(int(input()))
+elif d == "D12":
+    print("4islo ot 1 do 12")
+    Dice12Roll(int(input()))
+elif d == "Arcade Mode":
+    print("""------
+    Select Dice
+    """)
+    print("""--------
+    D4
+    D6
+    D12
+    D20
+    --------
+    """)    
+    t = 0
+    while t < 4:
+        arc = input()
+        if arc == "D6":
+            print("4islo ot 1 do 6")
+            Dice6Roll(int(input()))
+            t+=1
+        elif arc == "D4":
+            print("4islo ot 1 do 4")
+            Dice4Roll(int(input()))
+            t+=1
+        elif arc == "D20":
+            print("4islo ot 1 do 20")
+            Dice20Roll(int(input()))
+            t+=1
+        elif arc == "D12":
+            print("4islo ot 1 do 12")
+            Dice12Roll(int(input()))
+            t+=1
+print("Podelitec rezultatom:")
+print("Skolko pobed?")
+w = int(input())
+print("Skolko ne4iih?")
+d = int(input())
+print("Skolko proigrishow?")
+l = int(input())
+if l < w > d:
+    print("Da vi vezun4ik!")
+    if w == 2:
+        print("50 points")
+    elif w == 3:
+        print("75 points")
+    elif w == 4:
+        print("100 points")       
+elif w < l > d:
+    print("Lu4she idite na svarshika")
+    print("0 points")
+elif l < d > w:
+    print("Nu... Ladno")
+print("GAME OVER")
