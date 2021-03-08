@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*- 
 import random, vk_api, vk
-from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.utils import get_random_id
 vk_session = vk_api.VkApi(token='14a1f98a8ffb280447fbc5f0a95581c00a79351b0e69c7a8934cfa624017ca73010c3195e40cf1fcc5dc5')
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 longpoll = VkBotLongPoll(vk_session, 203102734)
 vk = vk_session.get_api()
-from vk_api.longpoll import VkLongPoll, VkEventType
+
 
 for event in longpoll.listen():
     if event.type == VkBotEventType.MESSAGE_NEW:
         if "228" in str(event):
             if event.from_chat:
-                vk.messages.send(
-                    random_id = get_random_id(), message='1337', chat_id = event.chat_id) 
+                vk.messages.send(random_id = get_random_id(), message='1337', chat_id = event.chat_id) 
         """a = 1
         while a < 100:
             a = a+1
