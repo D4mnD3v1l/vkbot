@@ -12,6 +12,26 @@ Lsvk = vk_session.get_api()
 
 for event in longpoll.listen():
     if event.type == VkBotEventType.MESSAGE_NEW:
+        if "228" in str(event):
+            if event.from_chat:
+                vk.messages.send(
+                    key = ('87670bdd15d91dd125d6b91f5c5f6f643464d2b19763c3e17d10932b2c93318b630bf7e783544f656cbc1'),
+                    server = ('https://cbbot.ifx.su/fe92ou:203102734?code=2806d04f'),
+                    ts = ('ljoce616uogctlai584i182okpner743'),
+                    random_id = get_random_id(),
+                    message='1337',
+                          chat_id = event.chat_id) 
+        """a = 1
+        while a < 100:
+            a = a+1
+            vk.messages.send(
+                key = ('87670bdd15d91dd125d6b91f5c5f6f643464d2b19763c3e17d10932b2c93318b630bf7e783544f656cbc1'),
+                server = ('https://cbbot.ifx.su/fe92ou:203102734?code=2806d04f'),
+                ts = ('ljoce616uogctlai584i182okpner743'),
+                random_id = get_random_id(),
+                message='ауе!',
+                      chat_id = event.chat_id)"""
+            
         if 'Ку' in str(event) or 'Привет' in str(event) or 'Хай' in str(event) or 'Хелло' in str(event) or 'Хеллоу' in str(event):
             if event.from_chat:
                 vk.messages.send(
@@ -40,5 +60,13 @@ for event in longpoll.listen():
                     ts = ('ljoce616uogctlai584i182okpner743'),
                     random_id = get_random_id(),
                     message='Иди нахуй! ',
-                          chat_id = event.chat_id) 
+                          chat_id = event.chat_id)
+        """else:
+            vk.messages.send(
+                key = ('87670bdd15d91dd125d6b91f5c5f6f643464d2b19763c3e17d10932b2c93318b630bf7e783544f656cbc1'),
+                server = ('https://cbbot.ifx.su/fe92ou:203102734?code=2806d04f'),
+                ts = ('ljoce616uogctlai584i182okpner743'),
+                random_id = get_random_id(),
+                message='Не понял',
+                      chat_id = event.chat_id)"""
           
