@@ -6,12 +6,22 @@ from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 longpoll = VkBotLongPoll(vk_session, 203102734)
 vk = vk_session.get_api()
 
-
 for event in longpoll.listen():
     if event.type == VkBotEventType.MESSAGE_NEW:
-        if "228" in str(event):
-            if event.from_chat:
-                vk.messages.send(random_id = get_random_id(), message='1337', chat_id = event.chat_id) 
+       
+        class VkBot:
+        
+            def __init__(self, user_id):
+                self._USER_ID = user_id
+                self._USERNAME = self._get_user_name_from_vk_id(user_id)
+                
+            def _get_user_name_from_vk_id(self, user_id):
+                request = requests.get("https://vk.com/id"+str(user_id))
+                bs = bs4.BeautifulSoup(request.text, "html.parser")
+                user_name = self._clean_all_tag_from_str(bs.findAll("title")[0])
+                
+                return user_name.split()[0]          
+                       
         """a = 1
         while a < 100:
             a = a+1
@@ -30,3 +40,29 @@ for event in longpoll.listen():
                 vk.messages.send(random_id = get_random_id(), message='Аниме - говно', chat_id = event.chat_id)
         """else:
             vk.messages.send(random_id = get_random_id(), message='Не понял', chat_id = event.chat_id)"""
+        
+        if 'Да' in str(event) or 'да' in str(event):
+            if event.from_chat:
+                vk.messages.send(random_id = get_random_id(), message='Пизда!', chat_id = event.chat_id)
+        
+        if 'Нет' in str(event) or 'нет' in str(event):
+            if event.from_chat:
+                vk.messages.send(random_id = get_random_id(), message='Пидора ответ!', chat_id = event.chat_id)
+                
+        if '300' in str(event) or 'триста' in str(event) or 'Триста' in str(event):
+            if event.from_chat:
+                vk.messages.send(random_id = get_random_id(), message='Отсоси у тракториста!', chat_id = event.chat_id)
+                
+        if 'Тракторист сегодня я отсоси ты у меня' in str(event):
+            if event.from_chat:
+                vk.messages.send(random_id = get_random_id(), message='В трактористы ты не годен, отсоси и будь свободен!', chat_id = event.chat_id)
+                
+        if 'Годен я сомнений нет лучше сделай мне минет' in str(event):
+            if event.from_chat:
+                vk.messages.send(random_id = get_random_id(), message='Урыл', chat_id = event.chat_id)
+                
+                
+                
+                
+                
+                
